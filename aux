@@ -6,10 +6,11 @@ source ~/.config/startaux.conf
 
 if [ "$1" == "start" ]
 then
-	echo "hello"
+	echo "AUX started"
      pactl load-module module-loopback source=$AUX_SOURCE
 elif [ "$1" == "stop" ]
 then
+	echo "AUX stopped"
      pactl unload-module module-loopback
 else
     echo "aux {start|stop}"
