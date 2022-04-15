@@ -1,0 +1,16 @@
+#!/bin/env bash
+if [ ! -f ~/.config/startaux.conf ]; then
+    cp /etc/startaux.conf ~/.config/startaux.conf
+fi
+source ~/.config/startaux.conf
+
+if [ "$1" == "start" ]
+then
+	echo "hello"
+     pactl load-module module-loopback source=$AUX_SOURCE
+elif [ "$1" == "stop" ]
+then
+     pactl unload-module module-loopback
+else
+    echo "aux {start|stop}"
+fi
